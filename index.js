@@ -1,8 +1,6 @@
 const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder } = require('discord.js');
 require('dotenv').config();
 
-const { parse } = require('csv-parse/sync');
-
 const token = process.env.TOKEN;
 const clientId = '1389170853312335994';
 const guildId = '1311698083863724123';
