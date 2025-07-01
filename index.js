@@ -1,7 +1,6 @@
 const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder } = require('discord.js');
 require('dotenv').config();
 
-const fetch = require('node-fetch');
 const { parse } = require('csv-parse/sync');
 
 const token = process.env.TOKEN;
@@ -32,6 +31,9 @@ const rest = new REST({ version: '10' }).setToken(token);
 })();
 
 // Hàm tải và parse CSV từ Google Sheet
+const { parse } = require('csv-parse/sync');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 async function getLinksFromCSV() {
   const csvUrl = 'https://docs.google.com/spreadsheets/d/1cQFGIJYsRkHCCP7QjKU_39ycCnoaUjQtYBSmJ_jeJHU/export?format=csv&gid=0';
   const res = await fetch(csvUrl);
